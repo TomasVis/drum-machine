@@ -37,8 +37,19 @@ this.setState({
       <button onClick = {this.submitMessage} >Drum 1</button>
       <button onClick = {this.submitMessage} >Drum 2</button>
       <AudioPlayer/>
+      <MyComponent/>
       
       </div>)
+  }
+}
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+  render() {
+    return <div ref={this.myRef} />;
   }
 }
 
@@ -52,10 +63,19 @@ render() {
 }
 }
 class AudioPlayer extends React.Component {
+    constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+func(){
+console.log("BBBBBBBBBBBBB"+this.myRef.current);
+
+}
+
   render() {
     return (
-      <button>
-        <audio ref="audio_tag" src="./sound/media.io_80s-COWBELL1.mp3" />
+      <button onClick = {this.func} >aaaaa
+        <audio ref={this.myRef} src="./sound/media.io_80s-COWBELL1.mp3" />
       </button>
     );
   }
