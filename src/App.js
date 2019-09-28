@@ -17,23 +17,24 @@ class MyComponentWithSound extends React.Component {
     this.submitMessage = this.submitMessage.bind(this)
   }
 
-  submitMessage(e){
-console.log("AAAAAAAAAAAAAA    "+  e);
+  submitMessage(){
+console.log("AAAAAAAAAAAAAA    ");
 this.setState({
-  status: 'PLAYING'
+  status: 'PLAYING',
+  file: soundfile1
 })
 }
   render() {
     return(<div>
-      <audio  src={soundfile1}>
+      <audio  /*loop="true"*/ autoplay="autoplay" src={this.state.file}>
         Your browser does not support the HTML5 audio element.
     </audio>
-     <Sound url={this.state.file}
+     {/*<Sound url={this.state.file}
       playStatus={this.state.status}
       playFromPosition={0 }
       onLoading={this.handleSongLoading}
       onPlaying={this.handleSongPlaying}
-      onFinishedPlaying={this.handleSongFinishedPlaying} />
+      onFinishedPlaying={this.handleSongFinishedPlaying} />*/}
       <button onClick = {this.submitMessage} >Drum 1</button>
       <button onClick = {this.submitMessage} >Drum 2</button>
       <AudioPlayer/>
